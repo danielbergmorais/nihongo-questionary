@@ -1,20 +1,32 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Blank
+      Quiz Nihongo
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
+ 
   <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+    <h2>Escolha seu questionario</h2>
+    <div class="menu-grid">
+
+      <a class="menu-card" routerLink="/questionary/family">
+        <img src="assets/imgs/family.jpg" alt="">
+        <span>Membros da familia</span>
+      </a>
+
+        <a class="menu-card" routerLink="/questionary/places">
+          <img src="assets/imgs/places.jpg" alt="">
+          <span>Tipos de moradia ou locais</span>
+        </a>
+
+        <a class="menu-card"  routerLink="/questionary/who">
+          <img src="assets/imgs/who.jpg" alt="">
+          <span>Quem esta na foto</span>
+        </a>
+    </div>
+
   </div>
 </ion-content>

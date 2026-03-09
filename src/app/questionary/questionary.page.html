@@ -1,0 +1,83 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Quiz Nihongo
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+ 
+  <div id="container">
+    <div class="quiz-header">
+      <div class="progress-text">
+        Pergunta {{ currentQuestion + 1 }} de {{ questions.length }}
+      </div>
+      <ion-progress-bar
+        [value]="progress"
+        color="primary">
+      </ion-progress-bar>
+    </div>
+
+
+<div class="quiz-container">
+  <h2>{{ questions[currentQuestion].question }}</h2>
+<div class="img-container">
+
+  <img
+    [src]="'assets/imgs/' + questions[currentQuestion].img"
+    alt="">
+
+  <ion-button
+    class="audio-btn"
+    fill="solid"
+    (click)="playAudio(this.questions[this.currentQuestion].audio)"
+    [class.playing]="isPlaying">
+    <ion-icon name="volume-high"></ion-icon>
+  </ion-button>
+
+</div>
+
+  <div
+    class="quiz-option"
+    *ngFor="let option of questions[currentQuestion].options"
+    (click)="selectOption(option.value)"
+    [ngClass]="getOptionClass(option.value)"
+  >
+ 
+
+    <div class="option-left">
+      <div class="letter-box">
+        {{ option.letter }}
+      </div>
+
+      <div class="option-text">
+        {{ option.text }}
+      </div>
+    </div>
+
+    <ion-icon
+      *ngIf="showResult && option.value === questions[currentQuestion].correct"
+      name="checkmark-circle"
+      class="correct-icon">
+    </ion-icon>
+
+    <ion-icon
+      *ngIf="showResult && selectedOption === option.value && option.value !== questions[currentQuestion].correct"
+      name="close-circle"
+      class="wrong-icon">
+    </ion-icon>
+
+  </div>
+
+</div>
+<ion-button
+  expand="block"
+  [disabled]="!showResult"
+  (click)="nextQuestion()">
+  Continuar
+</ion-button>
+  
+
+  </div>
+</ion-content>

@@ -3,12 +3,12 @@ import { questions, koreQuestions, placesQuestions }  from '../../assets/questio
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: 'home.page.html',
-  styleUrls: ['home.page.scss'],
+  selector: 'app-questionary',
+  templateUrl: 'questionary.page.html',
+  styleUrls: ['questionary.page.scss'],
   standalone: false,
 })
-export class HomePage {
+export class QuestionaryPage {
   constructor(private route: ActivatedRoute) {}
 
   id: string | null = null;
@@ -24,11 +24,14 @@ ngOnInit() {
   const id = this.route.snapshot.paramMap.get('id'); // retorna null se não existir
   if(id) {
     switch (id) {
-      case 'kore':
+      case 'who':
         this.questions = koreQuestions;
         break;
-      case 'casa':
+      case 'places':
         this.questions = placesQuestions;
+        break;
+      case 'family':
+        this.questions = questions;
         break;
       default:
         this.questions = questions;

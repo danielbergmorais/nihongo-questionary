@@ -1,0 +1,242 @@
+$azul: #4c8dff;
+$verde: #2dd36f;
+$vermelho: #eb445a;
+
+#container {
+  text-align: center;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.quiz-option {
+  max-width: 600px; 
+  margin: 0 auto;
+}
+
+.quiz-container {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.quiz-option {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: $azul;
+  padding: 16px;
+  border-radius: 16px;
+  border: 2px solid #e4e6eb;
+  background: white;
+
+  transition: all 0.2s ease;
+}
+
+/* hover */
+.quiz-option:hover {
+  border-color: $azul;
+  transform: scale(1.02);
+  cursor: pointer;
+}
+
+/* selecionado */
+
+.quiz-option.selected {
+  border-color: $azul;
+  background: #eef3ff;
+  box-shadow: 0 4px 10px rgba(76,141,255,0.15);
+}
+
+/* lado esquerdo */
+.option-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* letra */
+.letter-box {
+  width: 36px;
+  height: 36px;
+
+  border-radius: 10px;
+  border: 2px solid $azul;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-weight: bold;
+  color: $azul;
+}
+
+/* texto */
+
+.option-text {
+  font-size: 22px;
+  font-weight: 500;
+}
+
+/* check */
+.check-icon {
+  font-size: 24px;
+  color: $azul;
+  animation: pop 0.2s ease;
+}
+
+/* animação */
+@keyframes pop {
+  0% {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.quiz-header {
+  margin-top: 100px;
+  padding: 16px;
+}
+
+.progress-text {
+  font-size: 14px;
+  margin-bottom: 8px;
+  font-weight: 500;
+}
+
+ion-progress-bar {
+  height: 10px;
+  border-radius: 10px;
+}
+
+ion-progress-bar::part(track) {
+  border-radius: 10px;
+}
+
+ion-progress-bar::part(progress) {
+  border-radius: 10px;
+  transition: width 0.3s ease;
+}
+
+.quiz-option {
+  border: 2px solid #e5e5e5;
+  border-radius: 16px;
+  padding: 16px;
+  margin-bottom: 12px;
+  transition: all 0.25s ease;
+  min-width: 350px;
+}
+
+/* selecionado */
+
+.quiz-option.selected {
+  border-color: $azul;
+  background: #eef3ff;
+}
+
+/* correto */
+
+.quiz-option.correct {
+  border-color: $verde;
+  background: #e8fff1;
+  animation: correctPop 0.3s ease;
+}
+
+/* errado */
+
+.quiz-option.wrong {
+  border-color: $vermelho;
+  background: #ffecec;
+  animation: shake 0.35s;
+}
+
+/* desativado */
+
+.quiz-option.disabled {
+  opacity: 0.5;
+}
+
+/* animação correto */
+
+@keyframes correctPop {
+  0% { transform: scale(0.95); }
+  100% { transform: scale(1); }
+}
+
+/* animação erro */
+
+@keyframes shake {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-4px); }
+  50% { transform: translateX(4px); }
+  75% { transform: translateX(-4px); }
+  100% { transform: translateX(0); }
+}
+
+.correct-icon {
+  color: $verde;
+  font-size: 24px;
+}
+
+.wrong-icon {
+  color: $vermelho;
+  font-size: 24px;
+}
+
+ion-button {
+  max-width: 200px;
+  margin: 15px auto;
+  color: white;
+}
+
+
+
+
+.img-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin: 0 auto;
+
+  img {
+    max-width: 180px;
+  }
+}
+
+/* botão */
+
+.audio-btn {
+  position: relative;
+  --border-radius: 50%;
+  width: 56px;
+  height: 56px;
+}
+
+/* animação quando tocando */
+
+.audio-btn.playing {
+  animation: pulse 1.2s infinite;
+}
+
+/* efeito pulse */
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(76,141,255,0.5);
+  }
+
+  70% {
+    box-shadow: 0 0 0 14px rgba(76,141,255,0);
+  }
+
+  100% {
+    box-shadow: 0 0 0 0 rgba(76,141,255,0);
+  }
+}
